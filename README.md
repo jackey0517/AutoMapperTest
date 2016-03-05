@@ -1,0 +1,2 @@
+# AutoMapperTest
+demo for AutoMapper
