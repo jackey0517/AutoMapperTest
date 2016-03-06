@@ -11,11 +11,11 @@ namespace AutoMapperTest
 	{
 		static void Main( string[] args )
 		{
-			var tests = new Tests();
+			var tests = new TypcialUsageTest();
 
 			try
 			{
-				tests.SmokingTest();
+				tests.Test();
 			}
 			catch ( AutoMapperConfigurationException ex )
 			{

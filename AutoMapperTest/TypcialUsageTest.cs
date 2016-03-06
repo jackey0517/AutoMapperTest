@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace AutoMapperTest
 {
-	class Tests
+	class TypcialUsageTest
 	{
-		static Tests()
+		static TypcialUsageTest()
 		{
 			Mapper.Initialize( c =>
 			{
@@ -26,7 +26,7 @@ namespace AutoMapperTest
 			Mapper.AssertConfigurationIsValid();
 		}
 
-		public void SmokingTest()
+		public void Test()
 		{
 			var entity = new PersonEntity { Id = 100, Name = "test", BirthDay = DateTime.Now };
 			entity.Values.Add( 100 );
