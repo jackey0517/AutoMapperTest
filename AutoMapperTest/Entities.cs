@@ -31,11 +31,8 @@ namespace AutoMapperTest
 
 	class Child : Person
 	{
-		public List<Person> Parents { get; private set; }
-
 		public Child()
 		{
-			Parents = new List<Person>();
 		}
 	}
 
@@ -51,13 +48,22 @@ namespace AutoMapperTest
 
 		public int BirthMonth { get; set; }
 
-
 		public List<int> Values { get; private set; }
+
+		public List<Child> Children { get; private set; }
 
 
 		public Person()
 		{
 			Values = new List<int>();
+			Children = new List<Child>();
+		}
+	}
+
+	class ChildEntity : PersonEntity
+	{
+		public ChildEntity()
+		{
 		}
 	}
 
@@ -71,9 +77,13 @@ namespace AutoMapperTest
 
 		public List<int> Values { get; private set; }
 
+		public List<ChildEntity> Children { get; private set; }
+
+
 		public PersonEntity()
 		{
 			Values = new List<int>();
+			Children = new List<ChildEntity>();
 		}
 	}
 }

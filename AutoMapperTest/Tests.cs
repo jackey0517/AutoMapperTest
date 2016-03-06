@@ -16,9 +16,12 @@ namespace AutoMapperTest
 			{
 				c.CreateMap<PersonEntity, Person>()
 					.ForMember( p => p.BirthYear, _ => _.Ignore() )
-					.ForMember( p => p.BirthMonth, _ => _.MapFrom( _e => _e.BirthDay.Month ) );
+					.ForMember( p => p.BirthMonth, _ => _.MapFrom( _e => _e.BirthDay.Month ) )
+					.ForMember( p => p.Children, _ => _.MapFrom( _e => _e.Children ) );
 
 				c.CreateMap<Person, PersonEntity>();
+
+				c.CreateMap<ChildEntity, Child>().IncludeBase<PersonEntity, Person>();
 			} );
 
 			Mapper.AssertConfigurationIsValid();
@@ -29,6 +32,9 @@ namespace AutoMapperTest
 			var entity = new PersonEntity { Id = 100, Name = "test", BirthDay = DateTime.Now };
 			entity.Values.Add( 100 );
 			entity.Values.Add( 200 );
+
+			var child = new ChildEntity { Id = 10001, Name = "Child1" };
+			entity.Children.Add( child );
 
 			var p = Mapper.Map<Person>( entity );
 
