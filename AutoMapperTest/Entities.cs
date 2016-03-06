@@ -36,6 +36,7 @@ namespace AutoMapperTest
 		}
 	}
 
+	[AutoMapAttribute( typeof( PersonEntity ) )]
 	class Person : TestEntity
 	{
 		public int Id { get; set; }
@@ -67,6 +68,7 @@ namespace AutoMapperTest
 		}
 	}
 
+	[AutoMapAttribute( typeof( Person ) )]
 	class PersonEntity : TestEntity
 	{
 		public int Id { get; set; }
