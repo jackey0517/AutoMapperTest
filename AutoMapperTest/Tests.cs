@@ -27,6 +27,9 @@ namespace AutoMapperTest
 		public void SmokingTest()
 		{
 			var entity = new PersonEntity { Id = 100, Name = "test", BirthDay = DateTime.Now };
+			entity.Values.Add( 100 );
+			entity.Values.Add( 200 );
+
 			var p = Mapper.Map<Person>( entity );
 
 			PrintLine( p );
