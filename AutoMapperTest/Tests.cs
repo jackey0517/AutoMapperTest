@@ -16,8 +16,7 @@ namespace AutoMapperTest
 			{
 				c.CreateMap<PersonEntity, Person>()
 					.ForMember( p => p.BirthYear, _ => _.Ignore() )
-					.ForMember( p => p.BirthMonth, _ => _.MapFrom( _e => _e.BirthDay.Month ) )
-					.ForMember( p => p.Children, _ => _.MapFrom( _e => _e.Children ) );
+					.ForMember( p => p.BirthMonth, _ => _.MapFrom( _e => _e.BirthDay.Month ) );
 
 				c.CreateMap<Person, PersonEntity>();
 
