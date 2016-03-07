@@ -11,7 +11,7 @@ namespace AutoMapperTest
 	{
 		static void Main( string[] args )
 		{
-			var tests = new TypcialUsageTest();
+			var tests = new Tests();
 
 			try
 			{

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace AutoMapperTest
 {
-	class TypcialUsageTest
+	class Tests
 	{
 		public void Test()
 		{
