@@ -47,10 +47,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AutoMapFromAttribute.cs" />
     <Compile Include="DynamicInitializer.cs" />
     <Compile Include="Entities.cs" />
     <Compile Include="IMapperInitializer.cs" />
     <Compile Include="MapperInitializer.cs" />
+    <Compile Include="Profiles\ChildMappingProfile.cs" />
+    <Compile Include="Profiles\PersonMappingProfile.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Tests.cs" />
     <Compile Include="TypicalInitializer.cs" />

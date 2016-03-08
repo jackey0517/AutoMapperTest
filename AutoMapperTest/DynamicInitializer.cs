@@ -13,9 +13,9 @@ namespace AutoMapperTest
 		public void Initialize()
 		{
 			var mappings = Assembly.GetExecutingAssembly().GetTypes()
-				.Select( _ => new { Attr = _.GetCustomAttribute<AutoMapAttribute>(), Type = _ } )
-				.Where( _ => _.Attr != null )
-				.Select( _ => new { Src = _.Type, Dest = _.Attr.Destination } );
+				.Select( _ => new { MapFromAttr = _.GetCustomAttribute<AutoMapFromAttribute>(), Type = _ } )
+				.Where( _ => _.MapFromAttr != null )
+				.Select( _ => new { Src = _.MapFromAttr.Source, Dest = _.Type } );
 
 			var profileType = typeof( Profile );
 			var profiles = Assembly.GetExecutingAssembly().GetTypes()
@@ -28,36 +28,6 @@ namespace AutoMapperTest
 				foreach ( var p in mappings ) c.CreateMap( p.Src, p.Dest );
 				foreach ( var p in profiles ) c.AddProfile( p );
 			} );
-		}
-	}
-
-
-	public class AutoMapAttribute : Attribute
-	{
-		public Type Destination { get; set; }
-
-		public AutoMapAttribute( Type destination )
-		{
-			Destination = destination;
-		}
-	}
-
-
-	public class PersonMappingProfile : Profile
-	{
-		protected override void Configure()
-		{
-			CreateMap<PersonEntity, Person>()
-					.ForMember( p => p.BirthYear, _ => _.Ignore() )
-					.ForMember( p => p.BirthMonth, _ => _.MapFrom( _e => _e.BirthDay.Month ) );
-		}
-	}
-
-	public class ChildMappingProfile : Profile
-	{
-		protected override void Configure()
-		{
-			CreateMap<ChildEntity, Child>().IncludeBase<PersonEntity, Person>();
 		}
 	}
 }
