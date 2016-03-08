@@ -11,7 +11,9 @@ namespace AutoMapperTest.Profiles
 	{
 		protected override void Configure()
 		{
-			CreateMap<ChildEntity, Child>().IncludeBase<PersonEntity, Person>();
+			CreateMap<ChildEntity, Child>().IncludeBase<PersonEntity, Person>()
+				.ForMember( p => p.BirthYear, _ => _.Ignore() )
+				.ForMember( p => p.BirthMonth, _ => _.MapFrom( _e => _e.BirthDay.Month ) );
 		}
 	}
 }
