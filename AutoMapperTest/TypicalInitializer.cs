@@ -21,8 +21,6 @@ namespace AutoMapperTest
 
 				c.CreateMap<ChildEntity, Child>().IncludeBase<PersonEntity, Person>();
 			} );
-
-			Mapper.AssertConfigurationIsValid();
 		}
 	}
 }

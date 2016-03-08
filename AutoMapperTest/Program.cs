@@ -18,6 +18,8 @@ namespace AutoMapperTest
 				IMapperInitializer initializer = new DynamicInitializer();
 				initializer.Initialize();
 
+				Mapper.AssertConfigurationIsValid();
+
 				tests.Test();
 			}
 			catch ( AutoMapperConfigurationException ex )
